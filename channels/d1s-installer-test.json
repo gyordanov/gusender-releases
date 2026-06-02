@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "channel": "d1s-installer-test",
+  "version": "0.8.0-test-996bfb3",
+  "releasedAt": "2026-06-02T00:00:00Z",
+  "releaseUrl": "https://github.com/gyordanov/gusender-releases/tree/main/assets/d1s-installer-test",
+  "notesUrl": "https://github.com/gyordanov/EGSender/commit/996bfb3",
+  "assets": {
+    "sender": {
+      "bundle": {
+        "name": "gusender-v0.7.6-f203027-dirty1780315079.js.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.7.6-f203027-dirty1780315079.js.gz",
+        "sha256": "342058442526dc2d7a47116c4c29cf68b816f5d990d2edbbed2a3f8df01ac49a",
+        "size": 621921,
+        "target": {
+          "endpoint": "/sdfiles",
+          "path": "/",
+          "filename": "gusender-v0.7.6-f203027-dirty1780315079.js.gz"
+        }
+      },
+      "esp3dLoader": {
+        "name": "esp3d-index-v0.7.6-f203027-dirty1780315079.html",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.7.6-f203027-dirty1780315079.html",
+        "sha256": "5ce8f81e7e76db4dadee96332886b921bb542ba266b8e2ae1aedb19f157893b6",
+        "size": 8459,
+        "target": {
+          "endpoint": "/files",
+          "path": "/",
+          "filename": "index.html"
+        }
+      }
+    },
+    "d1s": {
+      "esp3dFirmware": {
+        "name": "esp3d-d1s-v1-fix-20260601.bin",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-v1-fix-20260601.bin",
+        "sha256": "67d02f491b77f283a9e58a15a74c801b71393702451a33848454f9a8393f458c",
+        "size": 1456464
+      },
+      "grblhalFirmware": {
+        "name": "grblhal-d1s-d1d4d78-dirty.bin",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-d1s-d1d4d78-dirty.bin",
+        "sha256": "ac049ce9da4e22b49809646e3c762003fd1c7237d3e25ad3abfd9f8eb00e5951",
+        "size": 224236
+      },
+      "defaults": {
+        "name": "d1s-default-settings.json",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/d1s-default-settings.json",
+        "sha256": "416595b1227dd041d63eda7c9a770d9ae05eab9a2c898c2796fd5a77584d3f3e",
+        "size": 2036
+      }
+    }
+  }
+}
