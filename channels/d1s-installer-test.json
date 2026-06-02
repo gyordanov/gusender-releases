@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "channel": "d1s-installer-test",
-  "version": "0.8.0-test-996bfb3",
-  "releasedAt": "2026-06-02T00:00:00Z",
+  "version": "0.8.0-test-16490c7",
+  "releasedAt": "2026-06-02T03:38:54.346Z",
   "releaseUrl": "https://github.com/gyordanov/gusender-releases/tree/main/assets/d1s-installer-test",
-  "notesUrl": "https://github.com/gyordanov/EGSender/commit/996bfb3",
+  "notesUrl": "https://github.com/gyordanov/EGSender/commit/16490c7",
   "assets": {
     "sender": {
       "bundle": {
@@ -46,8 +46,29 @@
       "defaults": {
         "name": "d1s-default-settings.json",
         "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/d1s-default-settings.json",
-        "sha256": "416595b1227dd041d63eda7c9a770d9ae05eab9a2c898c2796fd5a77584d3f3e",
-        "size": 2036
+        "sha256": "491f86d952e01244b7d7462c64412669f0c7585c77cd0d2966c62c0174dd98b8",
+        "size": 2375
+      },
+      "expected": {
+        "grblhal": {
+          "identityContains": [
+            "D1S"
+          ],
+          "pluginName": "D1S",
+          "pluginMinVersion": "0.4"
+        },
+        "esp3d": {
+          "hostnameContains": "HiMill-D1",
+          "fwVersion": "3.1.1",
+          "webUpdate": "Enabled"
+        },
+        "settings": {
+          "profile": "d1s-defaults-with-toolchange-wco-20260601",
+          "coordinates": {
+            "G59.3": "0.000,-7.000,-15.000,0.000:0.00",
+            "G30": "30.000,-7.000,0.000,0.000"
+          }
+        }
       }
     }
   }
