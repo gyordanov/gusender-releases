@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "channel": "d1s-installer-test",
-  "version": "0.8.0-test-16490c7",
-  "releasedAt": "2026-06-02T03:38:54.346Z",
+  "version": "0.8.0-beta.1",
+  "releasedAt": "2026-06-03T00:00:00.000Z",
   "releaseUrl": "https://github.com/gyordanov/gusender-releases/tree/main/assets/d1s-installer-test",
   "notesUrl": "https://github.com/gyordanov/EGSender/commit/16490c7",
   "assets": {
