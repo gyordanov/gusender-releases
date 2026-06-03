@@ -38,10 +38,10 @@
         "size": 1456464
       },
       "grblhalFirmware": {
-        "name": "grblhal-d1s-d1d4d78-dirty.bin",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-d1s-d1d4d78-dirty.bin",
-        "sha256": "ac049ce9da4e22b49809646e3c762003fd1c7237d3e25ad3abfd9f8eb00e5951",
-        "size": 224236
+        "name": "grblhal-d1s-esp-tunnel-fix-20260603.bin",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-d1s-esp-tunnel-fix-20260603.bin",
+        "sha256": "637d28be119f3e3551fcb371d5f2eda4131503e7a775a763c5051fe8177e7bd8",
+        "size": 224476
       },
       "defaults": {
         "name": "d1s-default-settings.json",
