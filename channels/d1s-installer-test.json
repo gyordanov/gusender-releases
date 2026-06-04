@@ -2,7 +2,7 @@
   "schema": 1,
   "channel": "d1s-installer-test",
   "version": "0.8.0-beta",
-  "releasedAt": "2026-06-04T00:38:30.821Z",
+  "releasedAt": "2026-06-04T00:43:48.062Z",
   "releaseUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "notesUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "assets": {
@@ -97,6 +97,13 @@
       }
     },
     "desktop": {
+      "darwin-universal": {
+        "name": "gusender-desktop-darwin-universal-v0.8.0-beta-921582f.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-desktop-darwin-universal-v0.8.0-beta-921582f.zip",
+        "sha256": "51b6f758ccd98716d0a7405c746eaf7b4b240fc7c5d244ed27fe4ff0ce38eb94",
+        "size": 14333707,
+        "installMode": "manual-download"
+      },
       "linux-amd64": {
         "name": "gusender-desktop-linux-amd64-v0.8.0-beta-921582f.zip",
         "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-desktop-linux-amd64-v0.8.0-beta-921582f.zip",
