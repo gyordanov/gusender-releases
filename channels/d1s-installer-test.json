@@ -1,33 +1,58 @@
 {
   "schema": 1,
   "channel": "d1s-installer-test",
-  "version": "0.8.0-beta.1",
-  "releasedAt": "2026-06-03T00:00:00.000Z",
-  "releaseUrl": "https://github.com/gyordanov/gusender-releases/tree/main/assets/d1s-installer-test",
-  "notesUrl": "https://github.com/gyordanov/EGSender/commit/16490c7",
+  "version": "0.8.0-beta",
+  "releasedAt": "2026-06-04T00:38:30.821Z",
+  "releaseUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
+  "notesUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "assets": {
     "sender": {
       "bundle": {
-        "name": "gusender-v0.7.6-f203027-dirty1780315079.js.gz",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.7.6-f203027-dirty1780315079.js.gz",
-        "sha256": "342058442526dc2d7a47116c4c29cf68b816f5d990d2edbbed2a3f8df01ac49a",
+        "name": "gusender-v0.8.0-beta-921582f.js.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.8.0-beta-921582f.js.gz",
+        "sha256": "0452b72f90bf04cdbe060ee5e06f72b760dd4644e3b7a11b31e0f422c80b9220",
         "size": 621921,
         "target": {
           "endpoint": "/sdfiles",
           "path": "/",
-          "filename": "gusender-v0.7.6-f203027-dirty1780315079.js.gz"
+          "filename": "gusender-v0.8.0-beta-921582f.js.gz"
         }
       },
       "esp3dLoader": {
-        "name": "esp3d-index-v0.7.6-f203027-dirty1780315079.html",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.7.6-f203027-dirty1780315079.html",
-        "sha256": "5ce8f81e7e76db4dadee96332886b921bb542ba266b8e2ae1aedb19f157893b6",
-        "size": 8459,
+        "name": "esp3d-index-v0.8.0-beta-921582f.html",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.8.0-beta-921582f.html",
+        "sha256": "ce81dab48afde474cd73a34932657eb10c1bd665c21f2c0a04b82b51310bc33d",
+        "size": 8420,
         "target": {
           "endpoint": "/files",
           "path": "/",
           "filename": "index.html"
         }
+      },
+      "flexihalLoader": {
+        "name": "grblhal-index-v0.8.0-beta-921582f.html.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-index-v0.8.0-beta-921582f.html.gz",
+        "sha256": "cfc5194e5a82b8b64797705e00b93189b334f864d216b0fafc1167962593e5f7",
+        "size": 3147,
+        "target": {
+          "endpoint": "/sdfiles",
+          "path": "/www",
+          "filename": "index.html.gz"
+        }
+      }
+    },
+    "downloads": {
+      "grblhalZip": {
+        "name": "grblhal-generic-0.8.0-beta-921582f.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-generic-0.8.0-beta-921582f.zip",
+        "sha256": "342fdfb840fa9c9284f8cbf96e3532a484799350f657b9823c1715d5cc8043be",
+        "size": 626720
+      },
+      "esp3dZip": {
+        "name": "esp3d-d1s-0.8.0-beta-921582f.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-0.8.0-beta-921582f.zip",
+        "sha256": "e1c1b3746d46d73fe5fcb779b4887bcebbea5d3ed6e5000473989b6dd7de372e",
+        "size": 626896
       }
     },
     "d1s": {
@@ -69,6 +94,22 @@
             "G30": "30.000,-7.000,0.000,0.000"
           }
         }
+      }
+    },
+    "desktop": {
+      "linux-amd64": {
+        "name": "gusender-desktop-linux-amd64-v0.8.0-beta-921582f.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-desktop-linux-amd64-v0.8.0-beta-921582f.zip",
+        "sha256": "9ee50b0ea615dbeae57a787fb05ee91cd7ce472c5648f13e22572f189f7b3667",
+        "size": 7311861,
+        "installMode": "manual-download"
+      },
+      "windows-amd64": {
+        "name": "gusender-desktop-windows-amd64-v0.8.0-beta-921582f.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-desktop-windows-amd64-v0.8.0-beta-921582f.zip",
+        "sha256": "423f38c32fb4d1d60e4107e88c2bc286e2d28ee1d4885bec799dc6b5e49678a8",
+        "size": 7687640,
+        "installMode": "manual-download"
       }
     }
   }
