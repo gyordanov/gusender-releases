@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "channel": "d1s-installer-test",
-  "version": "0.8.0-beta2",
-  "releasedAt": "2026-06-05T03:14:52.324Z",
+  "version": "0.8.0-beta3",
+  "releasedAt": "2026-06-05T12:09:00.124Z",
   "releaseUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "notesUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "assets": {
     "sender": {
       "bundle": {
-        "name": "gusender-v0.8.0-beta2-7640e54.js.gz",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.8.0-beta2-7640e54.js.gz",
-        "sha256": "6da8ab97dfdd168871459dbe5122a54b8dcb98acf02610460b9d460cadf747aa",
-        "size": 622693,
+        "name": "gusender-v0.8.0-beta3-1189d80.js.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.8.0-beta3-1189d80.js.gz",
+        "sha256": "f5d5c71a5af670f3228ffba3d84a582887da45c22d98847a6d5dee9fc37afc99",
+        "size": 622769,
         "target": {
           "endpoint": "/sdfiles",
           "path": "/",
-          "filename": "gusender-v0.8.0-beta2-7640e54.js.gz"
+          "filename": "gusender-v0.8.0-beta3-1189d80.js.gz"
         }
       },
       "esp3dLoader": {
-        "name": "esp3d-index-v0.8.0-beta2-7640e54.html",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.8.0-beta2-7640e54.html",
-        "sha256": "65fb6357f415dd654da20571af1b67cfd51aab16409381b1c6356d8ea7805f19",
+        "name": "esp3d-index-v0.8.0-beta3-1189d80.html",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.8.0-beta3-1189d80.html",
+        "sha256": "b5eff293954f930bdbb9bc2a8947dee871247cdee01265abfab9c145de98617b",
         "size": 8425,
         "target": {
           "endpoint": "/files",
@@ -30,9 +30,9 @@
         }
       },
       "flexihalLoader": {
-        "name": "grblhal-index-v0.8.0-beta2-7640e54.html.gz",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-index-v0.8.0-beta2-7640e54.html.gz",
-        "sha256": "f0b774b6154bb6063f92dc5f61f7f792ddc47820444825c686e748ff26f83679",
+        "name": "grblhal-index-v0.8.0-beta3-1189d80.html.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-index-v0.8.0-beta3-1189d80.html.gz",
+        "sha256": "dfce6621e8d5ddf5ade1e9dd8493f22ecac03207eea49d8716af22d668c915ec",
         "size": 3149,
         "target": {
           "endpoint": "/sdfiles",
