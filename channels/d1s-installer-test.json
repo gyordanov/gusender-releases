@@ -1,27 +1,27 @@
 {
   "schema": 1,
   "channel": "d1s-installer-test",
-  "version": "0.8.0-beta4",
-  "releasedAt": "2026-06-05T23:01:50.431Z",
+  "version": "0.8.0-beta5",
+  "releasedAt": "2026-06-06T13:15:49.431Z",
   "releaseUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "notesUrl": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test",
   "assets": {
     "sender": {
       "bundle": {
-        "name": "gusender-v0.8.0-beta4-a817fe2.js.gz",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.8.0-beta4-a817fe2.js.gz",
-        "sha256": "66858a9edc041ab1c1beba8c54756fb5202359c19524804a1feed1c98191ff13",
+        "name": "gusender-v0.8.0-beta5-fb05a60.js.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-v0.8.0-beta5-fb05a60.js.gz",
+        "sha256": "ea347a40203cef153eec312a649b859d1c8545f7a966ab94b0fc87d941f61f3f",
         "size": 623089,
         "target": {
           "endpoint": "/sdfiles",
           "path": "/",
-          "filename": "gusender-v0.8.0-beta4-a817fe2.js.gz"
+          "filename": "gusender-v0.8.0-beta5-fb05a60.js.gz"
         }
       },
       "esp3dLoader": {
-        "name": "esp3d-index-v0.8.0-beta4-a817fe2.html",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.8.0-beta4-a817fe2.html",
-        "sha256": "1c945128d4080d67c17330b93a48c5257bb0c5bfa95fa8b247833924ab03be03",
+        "name": "esp3d-index-v0.8.0-beta5-fb05a60.html",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-index-v0.8.0-beta5-fb05a60.html",
+        "sha256": "1ac84b27533b65441d34bd76d3e5426c9719ef2a54dc4019e9e4c7deac7798b8",
         "size": 8425,
         "target": {
           "endpoint": "/files",
@@ -30,9 +30,9 @@
         }
       },
       "flexihalLoader": {
-        "name": "grblhal-index-v0.8.0-beta4-a817fe2.html.gz",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-index-v0.8.0-beta4-a817fe2.html.gz",
-        "sha256": "626e90f4077d784b150e67de87e94ec31665512eafdaadade46ffd9e63c70313",
+        "name": "grblhal-index-v0.8.0-beta5-fb05a60.html.gz",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-index-v0.8.0-beta5-fb05a60.html.gz",
+        "sha256": "a10dea105775987aa2d5b8919d8cc058ac362b429978f920bb1ef1aca5f2a5b8",
         "size": 3149,
         "target": {
           "endpoint": "/sdfiles",
@@ -43,35 +43,35 @@
     },
     "downloads": {
       "grblhalZip": {
-        "name": "grblhal-generic-0.8.0-beta4-a817fe2.zip",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-generic-0.8.0-beta4-a817fe2.zip",
-        "sha256": "0da638abdb2b1334f024fc7e9cf173ab717f6dcb437fb5ec08a3f9534147a22c",
+        "name": "grblhal-generic-0.8.0-beta5-fb05a60.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-generic-0.8.0-beta5-fb05a60.zip",
+        "sha256": "d7206372836382b31b05c96e5e7e9ab8c948bde2c5b02e7db3d0d0fd64a77597",
         "size": 627784
       },
       "esp3dZip": {
-        "name": "esp3d-d1s-0.8.0-beta4-a817fe2.zip",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-0.8.0-beta4-a817fe2.zip",
-        "sha256": "3c37a0823f91ce8e07d8f08fc2ba4c33c99ada18bc74c01b53802e410f49334e",
-        "size": 627958
+        "name": "esp3d-d1s-0.8.0-beta5-fb05a60.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-0.8.0-beta5-fb05a60.zip",
+        "sha256": "686fc52d7a3d1de2d236b5beb9894dbf57d8d0617b40ceb105cd4ed131358d96",
+        "size": 627960
       },
       "d1sInstallerZip": {
-        "name": "gusender-d1s-installer-v0.8.0-beta4.zip",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-d1s-installer-v0.8.0-beta4.zip",
-        "sha256": "21be04b39ff02abcaeb4cfa04a1e02bd271cc3170e2c2dd91efe9af206feacd9",
-        "size": 1747808
+        "name": "gusender-d1s-installer-v0.8.0-beta5.zip",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/gusender-d1s-installer-v0.8.0-beta5.zip",
+        "sha256": "657106dc4287fc1c7599e3a9eb10ecd6433b1cd7f9d8b1ac341206cdd0f57756",
+        "size": 1747818
       }
     },
     "d1s": {
       "esp3dFirmware": {
-        "name": "esp3d-d1s-fw-3.1.1-d2-20260605.bin",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-fw-3.1.1-d2-20260605.bin",
-        "sha256": "94487eec04cbe6c896ef5c13338aadff5f4c161b3dfd0182c25e3a3f6a3b1de9",
+        "name": "esp3d-d1s-fw-3.1.1-d3-20260606.bin",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/esp3d-d1s-fw-3.1.1-d3-20260606.bin",
+        "sha256": "11e9d89465a3a443f1c0b2ff2654783eea429d8281fcc8c0fc5043045eff0d07",
         "size": 1457536
       },
       "grblhalFirmware": {
-        "name": "grblhal-himill-d1s-plugin-v0.6-20260605.bin",
-        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-himill-d1s-plugin-v0.6-20260605.bin",
-        "sha256": "dd6f8ad81e67293621d35d6ffb35572aaa908e133705478b4ca508adda00be15",
+        "name": "grblhal-himill-d1s-plugin-v0.7-20260606.bin",
+        "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/grblhal-himill-d1s-plugin-v0.7-20260606.bin",
+        "sha256": "a1ee356e4a53511bc2d411b2fb79a8910be68016db6e442ad02ecf38f2e606a0",
         "size": 224708
       },
       "defaults": {
@@ -86,11 +86,11 @@
             "HIMILL_D1S"
           ],
           "pluginName": "HIMILL_D1S",
-          "pluginMinVersion": "0.6"
+          "pluginMinVersion": "0.7"
         },
         "esp3d": {
           "hostnameContains": "HiMill-D1",
-          "fwVersion": "3.1.1-d2",
+          "fwVersion": "3.1.1-d3",
           "webUpdate": "Enabled"
         },
         "settings": {
