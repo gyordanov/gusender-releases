@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "description": "Default grblHAL settings and toolchange coordinates for HiMill D1S, captured 2026-06-01",
+    "description": "Default grblHAL settings and toolchange coordinates for HiMill D1S, captured 2026-06-01; 2026-06-16: probe protection enabled ($65: 10->42, bit 5)",
     "source_export": "/tmp/d1s_defaults_and_wco",
-    "profile": "d1s-defaults-with-toolchange-wco-20260601",
+    "profile": "d1s-defaults-probe-protect-20260616",
     "excluded": "G54 work offset, other zero WCS offsets, TLO, G92, empty-string settings (network names)",
     "count": 106,
     "coordinate_count": 2
@@ -62,7 +62,7 @@
     "62": "0",
     "63": "3",
     "64": "0",
-    "65": "10",
+    "65": "42",
     "100": "1600.00000",
     "101": "1600.00000",
     "102": "1600.00000",
