@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>GUSender</title>
+<script>
+window.GUSENDER_PLATFORM="esp3d";
+window.GUSENDER_DEFAULTS={"name":"HiMill D1S","port":8282,"web-ui?":false,"sd-mode":"http","hardware-type":"himill-d1s","buffering-mode":"aggressive","z-height-enabled?":true,"z-height-gcode":"[SET_OFFSET]\nG10L1P1Z0\nG43H1\nG92 Z0","laser-enabled?":true,"laser-gcode":"$32=1\n[LASER_MODE:1]","cnc-gcode":"$32=0\n[LASER_MODE:0]","coolant-enabled?":false,"tool-mode":"passthrough","origin":"top-left"};
+(function(){
+  var s=localStorage.getItem('gusender_theme');
+  var d=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme=s||(d?'dark':'light');
+})();
+// Synchronous config load from device (flash on ESP3D, /www on FlexiHAL — both served at root)
+(function(){
+  var xhr=new XMLHttpRequest();
+  xhr.open("GET","/gusender-config.json?t="+Date.now(),false);
+  try{xhr.send()}catch(e){return}
+  if(xhr.status===200){try{window.GUSENDER_CONFIG=JSON.parse(xhr.responseText)}catch(e){}}
+})();
+// Load job snapshot (if a job was running when browser last disconnected)
+(function(){
+  var xhr=new XMLHttpRequest();
+  xhr.open("GET","/gusender-job-state.json?t="+Date.now(),false);
+  try{xhr.send()}catch(e){return}
+  if(xhr.status===200){try{window.GUSENDER_JOB_STATE=JSON.parse(xhr.responseText)}catch(e){}}
+})();
+// Pendant offer pre-fetch — sync XHR runs before the bundle starts. Always
+// fetches from URL root: FlexiHAL serves /www files there (SD), D1S serves
+// /FS files there (flash). NEVER /sd/ — that path on D1S touches SD via
+// HTTP and would unmount the card from grblHAL during a running job (see
+// reference_controller_filesystems.md and reference_msg_relay_limits.md).
+// On success sets window.GUSENDER_PENDANT_OFFER for the bundle to read.
+//
+// Sets two diagnostic markers regardless of outcome:
+//   GUSENDER_LOADER_VERSION — proves the new loader ran (vs cached old one)
+//   GUSENDER_PENDANT_OFFER_DEBUG — {status, len, parseErr|exception}
+window.GUSENDER_LOADER_VERSION="v0.4-pendant-sync-1";
+(function(){
+  try{
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET","/gus-pendant-offer.json?t="+Date.now(),false);
+    xhr.send();
+    var rt=xhr.responseText||"";
+    window.GUSENDER_PENDANT_OFFER_DEBUG={status:xhr.status,len:rt.length};
+    if(xhr.status===200){
+      try{window.GUSENDER_PENDANT_OFFER=JSON.parse(rt)}
+      catch(e){window.GUSENDER_PENDANT_OFFER_DEBUG.parseErr=e.message}
+    }
+  }catch(e){window.GUSENDER_PENDANT_OFFER_DEBUG={exception:(e&&e.message)||String(e)}}
+})();
+</script>
+<style>
+body{margin:0;background:#111;color:#aaa;font-family:system-ui}
+#L{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center}
+#L h2{font-size:1.2em;margin-bottom:0.5em}
+#L .bar{width:200px;height:4px;background:#333;border-radius:2px;overflow:hidden;margin:0 auto}
+#L .fill{height:100%;background:#60a5fa;width:0%;transition:width 0.15s}
+#L .msg{font-size:11px;margin-top:6px;color:#666}
+#L .fallback{display:none;margin-top:16px;font-size:12px}
+#L .fallback.show{display:block}
+#L .fallback button{margin:4px;padding:6px 16px;border:1px solid #444;border-radius:6px;background:#222;color:#aaa;cursor:pointer;font-size:11px}
+#L .fallback button:hover{background:#333;border-color:#666}
+#L .warn{color:#f59e0b;font-size:10px;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="L">
+  <h2>GUSender</h2>
+  <div class="bar"><div class="fill" id="pct"></div></div>
+  <div class="msg" id="msg">v0.8.0-beta11 bcf2996c</div>
+  <div class="fallback" id="fallback">
+    <div>Could not download from server.</div>
+    <button id="btn-upload" title="Select the gusender-v0.8.0-beta11.js.gz file from your computer">Upload from PC</button>
+    <button id="btn-sd" title="Download from device SD card">Load from SD card</button>
+    <div class="warn">SD card loading may interrupt a running job!</div>
+  </div>
+</div>
+<input type="file" id="file-input" accept=".gz" style="display:none">
+<div id="app"></div>
+<script>
+(async function(){
+  var BUNDLE_KEY="gusender-v0.8.0-beta11-cf2996c.js.gz";
+  var SERVER_URL="https://fs.platformis.com/gus/gusender-v0.8.0-beta11-cf2996c.js.gz";
+  var SD_URL="/sd/gusender-v0.8.0-beta11-cf2996c.js.gz";
+  var DB_NAME="GUSenderCache";
+  var STORE="bundles";
+  var msg=document.getElementById("msg");
+  var pct=document.getElementById("pct");
+
+  // IndexedDB helpers
+  function openDB(){
+    return new Promise(function(ok,fail){
+      var req=indexedDB.open(DB_NAME,1);
+      req.onupgradeneeded=function(){req.result.createObjectStore(STORE)};
+      req.onsuccess=function(){ok(req.result)};
+      req.onerror=function(){fail(req.error)};
+    });
+  }
+  function idbGet(db,key){
+    return new Promise(function(ok){
+      var tx=db.transaction(STORE,"readonly");
+      var req=tx.objectStore(STORE).get(key);
+      req.onsuccess=function(){ok(req.result)};
+      req.onerror=function(){ok(null)};
+    });
+  }
+  function idbPut(db,key,val){
+    return new Promise(function(ok){
+      var tx=db.transaction(STORE,"readwrite");
+      var store=tx.objectStore(STORE);
+      store.put(val,key);
+      // Evict old versions
+      var cursor=store.openCursor();
+      cursor.onsuccess=function(){
+        var c=cursor.result;
+        if(c){if(c.key!==key)c.delete();c.continue()}
+      };
+      tx.oncomplete=function(){ok()};
+    });
+  }
+
+  async function decompressGz(response){
+    var total=parseInt(response.headers.get("content-length"))||0;
+    var ds=new DecompressionStream("gzip");
+    var reader=response.body.pipeThrough(ds).getReader();
+    var chunks=[],loaded=0;
+    for(;;){
+      var res=await reader.read();
+      if(res.done)break;
+      chunks.push(res.value);
+      loaded+=res.value.length;
+      if(total){pct.style.width=Math.min(100,loaded/(total*3)*100)+"%"}
+      msg.textContent=Math.round(loaded/1024)+" KB";
+    }
+    return new TextDecoder().decode(await new Blob(chunks).arrayBuffer());
+  }
+
+  function runBundle(text){
+    document.getElementById("L").remove();
+    var s=document.createElement("script");
+    s.textContent=text;
+    document.body.appendChild(s);
+  }
+
+  function showFallback(){
+    document.getElementById("fallback").classList.add("show");
+    // Upload from PC
+    document.getElementById("btn-upload").onclick=function(){
+      document.getElementById("file-input").click();
+    };
+    document.getElementById("file-input").onchange=async function(e){
+      var file=e.target.files[0];
+      if(!file)return;
+      msg.textContent="decompressing...";
+      pct.style.width="50%";
+      try{
+        var resp=new Response(file.stream());
+        var text=await decompressGz(resp);
+        msg.textContent="caching...";
+        await idbPut(db,BUNDLE_KEY,text);
+        runBundle(text);
+      }catch(err){msg.textContent="Error: "+err.message;msg.style.color="#f87171"}
+    };
+    // Load from SD card
+    document.getElementById("btn-sd").onclick=async function(){
+      msg.textContent="downloading from SD...";
+      try{
+        var r=await fetch(SD_URL);
+        if(!r.ok)throw new Error("HTTP "+r.status);
+        var text=await decompressGz(r);
+        msg.textContent="caching...";
+        await idbPut(db,BUNDLE_KEY,text);
+        runBundle(text);
+      }catch(err){msg.textContent="Error: "+err.message;msg.style.color="#f87171"}
+    };
+  }
+
+  var db;
+  try{
+    db=await openDB();
+    var cached=await idbGet(db,BUNDLE_KEY);
+
+    if(cached){
+      // Tier 1: IndexedDB cache hit — instant
+      msg.textContent="cached";
+      pct.style.width="100%";
+      runBundle(cached);
+      return;
+    }
+
+    // Tier 2: Try remote server
+    msg.textContent="downloading...";
+    try{
+      var r=await fetch(SERVER_URL);
+      if(r.ok){
+        var text=await decompressGz(r);
+        msg.textContent="caching...";
+        await idbPut(db,BUNDLE_KEY,text);
+        runBundle(text);
+        return;
+      }
+    }catch(e){}
+
+    // Tier 3: Server failed — show fallback options
+    msg.textContent="server unavailable";
+    showFallback();
+  }catch(e){
+    msg.textContent="Error: "+e.message;
+    msg.style.color="#f87171";
+  }
+})();
+</script>
+</body>
+</html>
