@@ -71,8 +71,8 @@
       "defaults": {
         "name": "d1s-default-settings.json",
         "url": "https://raw.githubusercontent.com/gyordanov/gusender-releases/main/assets/d1s-installer-test/d1s-default-settings.json",
-        "sha256": "96d6305267ac6ea3590de37b6510aab92f7398cbbb7bd201a540920d1128ed44",
-        "size": 2428
+        "sha256": "2f02dc76cc80d868b2b9aa91a7b45b303642a477a889016880dc66b8a261e5d1",
+        "size": 2358
       },
       "expected": {
         "grblhal": {
